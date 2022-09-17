@@ -13,6 +13,7 @@ print(len(response.json()))
 # Using the json module encode the python object into json format in a file
 with open (r"C:\Users\ACE\Desktop\test.json", "w") as json_file:
     # pick a random position of a dictionary in the list
-    json.dump(response.json()[10], json_file, indent = 4)
+    # Perform compact encoding
+    json.dump(response.json()[10], json_file, indent = 4, separators=(",",":"))
     
 # Done writing pretty printed JSON data into a file (test.json)
