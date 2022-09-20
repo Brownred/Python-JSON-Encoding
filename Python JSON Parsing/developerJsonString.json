@@ -1,0 +1,15 @@
+{
+    "name": "jane doe",
+    "salary": 9000.012,
+    "leaveDays": 5,
+    "skills": [
+        "Raspberry pi",
+        "Machine Learning",
+        "web development"
+    ],
+    "email": "Janedoe@pynative.com",
+    "projects": [
+        "python Data Mining",
+        "Python Data Science"
+    ]
+}
