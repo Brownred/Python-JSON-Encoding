@@ -1,0 +1,30 @@
+import json
+from collections import namedtuple
+from json import JSONEncoder
+
+class Student:
+    def __init__(self, rollnumber, name, marks):
+        self.rollnumber, self.name, self.marks = rollnumber, name, marks
+        
+class Marks:
+    def __init__(self, english, geometry):
+        self.english, self.geometry = english, geometry
+        
+class StudentEncoder(JSONEncoder):
+    def default(self, o):
+        return o.__dict__
+    
+def customStudentDencoder(studentDict):
+    return namedtuple("X", studentDict.keys())(*studentDict.values())
+
+marks = Marks(82, 74)
+student = Student(1, "Emma", marks)
+
+# dumps to produce in native str format. use dump() to write it into a file
+studentjson = json.dumps(student, indent=4, cls=StudentEncoder)
+print(studentjson)
+
+# Parse JSON into an object with attributes corresponding to dict keys
+studObj = json.loads(studentjson, object_hook=customStudentDencoder)
+print()
+print(studObj)
